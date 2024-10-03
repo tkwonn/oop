@@ -136,4 +136,9 @@ class Wallet {
         }
         return $bill * $amount;
     }
+
+    public function __toString(): string
+    {
+        return "Wallet: " . $this->getTotalMoney();
+    }
 }

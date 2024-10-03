@@ -9,7 +9,7 @@ class Person {
     private float $heightM;
     private float $weightKg;
     private string $denomination = "highestFirst";
-    private Wallet $wallet;
+    private ?Wallet $wallet;
 
     public function __construct(string $firstName, string $lastName, int $age, float $heightM, float $weightKg)
     {
@@ -72,7 +72,16 @@ class Person {
         return $temp;
     }
 
-    public function actionByHighestFirst(int $money, string $action): int
+    public function printState(): void
+    {
+        echo "Name: " . $this->getFullName() . PHP_EOL;
+        echo "Age: " . $this->age . PHP_EOL;
+        echo "Height: " . $this->heightM . "cm" . PHP_EOL;
+        echo "Weight: " . $this->weightKg . "kg" . PHP_EOL;
+        echo "Current money: " . $this->getCash() . PHP_EOL;
+    }
+
+    private function actionByHighestFirst(int $money, string $action): int
     {
         if($money == 0) return 0;
 
@@ -81,13 +90,13 @@ class Person {
             if($action == "spend") 
             {
                 $this->wallet->setBill100($this->wallet->getBill100() - 1);
-                echo $this->wallet->removeBill(100, 1) . " removed" . PHP_EOL;
+                // echo $this->wallet->removeBill(100, 1) . " removed" . PHP_EOL;
                 return $this->actionByHighestFirst($money - 100, $action);
             }
             else
             {
                 $this->wallet->setBill100($this->wallet->getBill100() + 1);
-                echo $this->wallet->insertBill(100, 1) . " inserted" . PHP_EOL;
+                // echo $this->wallet->insertBill(100, 1) . " inserted" . PHP_EOL;
                 return $this->actionByHighestFirst($money - 100, $action);
             }
         }
@@ -96,13 +105,13 @@ class Person {
             if($action == "spend") 
             {
                 $this->wallet->setBill50($this->wallet->getBill50() - 1);
-                echo $this->wallet->removeBill(50, 1) . " removed" . PHP_EOL;
+                // echo $this->wallet->removeBill(50, 1) . " removed" . PHP_EOL;
                 return $this->actionByHighestFirst($money - 50, $action);
             }
             else
             {
                 $this->wallet->setBill50($this->wallet->getBill50() + 1);
-                echo $this->wallet->insertBill(50, 1) . " inserted" . PHP_EOL;
+                // echo $this->wallet->insertBill(50, 1) . " inserted" . PHP_EOL;
                 return $this->actionByHighestFirst($money - 50, $action);
             }
         }
@@ -111,13 +120,13 @@ class Person {
             if($action == "spend") 
             {
                 $this->wallet->setBill20($this->wallet->getBill20() - 1);
-                echo $this->wallet->removeBill(20, 1) . " removed" . PHP_EOL;
+                // echo $this->wallet->removeBill(20, 1) . " removed" . PHP_EOL;
                 return $this->actionByHighestFirst($money - 20, $action);
             }
             else
             {
                 $this->wallet->setBill20($this->wallet->getBill20() + 1);
-                echo $this->wallet->insertBill(20, 1) . " inserted" . PHP_EOL;
+                // echo $this->wallet->insertBill(20, 1) . " inserted" . PHP_EOL;
                 return $this->actionByHighestFirst($money - 20, $action);
             }
         }
@@ -126,13 +135,13 @@ class Person {
             if($action == "spend") 
             {
                 $this->wallet->setBill10($this->wallet->getBill10() - 1);
-                echo $this->wallet->removeBill(10, 1) . " removed" . PHP_EOL;
+                // echo $this->wallet->removeBill(10, 1) . " removed" . PHP_EOL;
                 return $this->actionByHighestFirst($money - 10, $action);
             }
             else
             {
                 $this->wallet->setBill10($this->wallet->getBill10() + 1);
-                echo $this->wallet->insertBill(10, 1) . " inserted" . PHP_EOL;
+                // echo $this->wallet->insertBill(10, 1) . " inserted" . PHP_EOL;
                 return $this->actionByHighestFirst($money - 10, $action);
             }
         }
@@ -141,13 +150,13 @@ class Person {
             if($action == "spend") 
             {
                 $this->wallet->setBill5($this->wallet->getBill5() - 1);
-                echo $this->wallet->removeBill(5, 1) . " removed" . PHP_EOL;
+                // echo $this->wallet->removeBill(5, 1) . " removed" . PHP_EOL;
                 return $this->actionByHighestFirst($money - 5, $action);
             }
             else
             {
                 $this->wallet->setBill5($this->wallet->getBill5() + 1);
-                echo $this->wallet->insertBill(5, 1) . " inserted" . PHP_EOL;
+                // echo $this->wallet->insertBill(5, 1) . " inserted" . PHP_EOL;
                 return $this->actionByHighestFirst($money - 5, $action);
             }
         }
@@ -156,19 +165,19 @@ class Person {
             if($action == "spend") 
             {
                 $this->wallet->setBill1($this->wallet->getBill1() - 1);
-                echo $this->wallet->removeBill(1, 1) . " removed" . PHP_EOL;
+                // echo $this->wallet->removeBill(1, 1) . " removed" . PHP_EOL;
                 return $this->actionByHighestFirst($money - 1, $action);
             }
             else
             {
                 $this->wallet->setBill1($this->wallet->getBill1() + 1);
-                echo $this->wallet->insertBill(1, 1) . " inserted" . PHP_EOL;
+                // echo $this->wallet->insertBill(1, 1) . " inserted" . PHP_EOL;
                 return $this->actionByHighestFirst($money - 1, $action);
             }
         }
     }
 
-    public function actionByTwenties(int $money, string $action): int
+    private function actionByTwenties(int $money, string $action): int
     {
         if($money == 0) return 0;
 
@@ -177,13 +186,13 @@ class Person {
             if($action == "spend") 
             {
                 $this->wallet->setBill20($this->wallet->getBill20() - 1);
-                echo $this->wallet->removeBill(20, 1) . " removed" . PHP_EOL;
+                // echo $this->wallet->removeBill(20, 1) . " removed" . PHP_EOL;
                 return $this->actionByTwenties($money - 20, $action);
             }
             else
             {
                 $this->wallet->setBill20($this->wallet->getBill20() + 1);
-                echo $this->wallet->insertBill(20, 1) . " inserted" . PHP_EOL;
+                // echo $this->wallet->insertBill(20, 1) . " inserted" . PHP_EOL;
                 return $this->actionByTwenties($money - 20, $action);
             }
         }
@@ -194,32 +203,23 @@ class Person {
         }
     }
 
-    public function actionByDollars(int $money, string $action): int
+    private function actionByDollars(int $money, string $action): int
     {
         while($money > 0 && $this->wallet->getBill1() > 0)
         {
             if($action == "spend")
             {
                 $this->wallet->setBill1($this->wallet->getBill1() - 1);
-                echo $this->wallet->removeBill(1, 1) . " removed" . PHP_EOL;
+                // echo $this->wallet->removeBill(1, 1) . " removed" . PHP_EOL;
                 $money--;
             }
             else 
             {
                 $this->wallet->setBill1($this->wallet->getBill1() + 1);
-                echo $this->wallet->insertBill(1, 1) . " inserted" . PHP_EOL;
+                // echo $this->wallet->insertBill(1, 1) . " inserted" . PHP_EOL;
                 $money--;
             }
         }
         return 0;
-    }
-
-    public function printState(): void
-    {
-        echo "Name: " . $this->getFullName() . PHP_EOL;
-        echo "Age: " . $this->age . PHP_EOL;
-        echo "Height: " . $this->heightM . "m" . PHP_EOL;
-        echo "Weight: " . $this->weightKg . "kg" . PHP_EOL;
-        echo "Current money: " . $this->getCash() . PHP_EOL;
     }
 }
