@@ -1,1 +1,18 @@
-![Screenshot 2024-05-02 at 10 52 16](https://github.com/tkwonn/OOP/assets/66197642/7c43be1a-167b-4324-89de-d5a80a206768)
+```mermaid
+classDiagram
+    class RGB24 {
+        +int red
+        +int green
+        +int blue
+        -RGB24()
+        +fromInt(red: int, green: int, blue: int) RGB24$
+        +fromString(inputString: string) RGB24$
+        +setColorsByHex(hex: string) void
+        +setColorsByBin(bin: string) void
+        +setAsBlack() void
+        +getHex() string
+        +getBits() string
+        +getColorShade() string
+        +__toString() string
+    }
+```

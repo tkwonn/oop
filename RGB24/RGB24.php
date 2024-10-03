@@ -5,10 +5,10 @@ class RGB24 {
     public int $green;
     public int $blue;
 
-    private function __construct(){
-    }
+    private function __construct(){}
 
-    // function overload
+    // Using factory pattern with a private constructor
+    // since function overload is not supported in PHP
     public static function fromInt(int $red, int $green, int $blue): self {
         if ($red < 0 || $red > 255 || $green < 0 || $green > 255 || $blue < 0 || $blue > 255) {
             throw new InvalidArgumentException('Color values must be between 0 and 255.');
@@ -78,6 +78,6 @@ class RGB24 {
 
     // automatically called when you try to use an object as a string
     public function __toString(): string {
-        return "The color is rg(" . $this->red . "," . $this->green . "," . $this->blue . "). Hex: " . $this->getHex() . ", binary: " . $this->getBits(); 
+        return "The color is rgb(" . $this->red . "," . $this->green . "," . $this->blue . "). Hex: " . $this->getHex() . ", binary: " . $this->getBits(); 
     }
 }
