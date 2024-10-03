@@ -5,10 +5,10 @@ This repository contains my learning outputs and practice projects related to Ob
 ### Repository Structure
 
 Each project has its own dedicated directory. Within each project directory, you will find:
-  - `Class Contracts` (contract.md) that provide detailed information about the constructors, properties, and methods of each class.
+  - `Class Contracts` (Contract.md) that provide detailed information about the constructors, properties, and methods of each class.
   - `Source code`
   - `UML diagrams` (UML.md) 
-  - `relationship.md` illustrating the class relationships and interactions.
+  - `Relationship.md` illustrating the class relationships and interactions.
 
 ### How to run
 
@@ -18,7 +18,7 @@ $ git clone depth=1 url
 
 For PHP,
 go to directory with name php and run 
-```php
+```
 $ php main.php
 ```
 
