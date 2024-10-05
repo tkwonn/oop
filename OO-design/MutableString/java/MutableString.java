@@ -37,15 +37,26 @@ class MutableString {
         return new MutableString(newString);
     }
 
+    public MutableString substring(int startIndex, int endIndex) {
+        ArrayList<Character> newString = new ArrayList<Character>(this.string.subList(startIndex, endIndex));
+        return new MutableString(newString);
+    }
+
     public void concat(char[] cArr) {
         for (int i = 0; i < cArr.length; i++) {
             this.string.add(cArr[i]);
         }
     }
 
-    public void concat(MutableString obj) {
-        for (int i = 0; i < obj.length(); i++) {
-            this.string.add(obj.string.get(i));
+    public void concat(String stringInput) {
+        for (int i = 0; i < stringInput.length(); i++) {
+            this.string.add(stringInput.charAt(i));
+        }
+    }
+
+    public void concat(MutableString stringInput) {
+        for (int i = 0; i < stringInput.length(); i++) {
+            this.string.add(stringInput.string.get(i));
         }
     }
 
@@ -66,13 +77,19 @@ class Main {
         str.append('d');
         System.out.println(str.getString()); // Hello World
         System.out.println(str.length()); // 11
-        MutableString str2 = str.substring(6); 
-        System.out.println(str2.getString()); // World
+
+        MutableString str2 = new MutableString("This is a test");
+        System.out.println(str2.getString()); // This is a test
         
-        char[] cArr = {'!', '!', '!'};
-        str2.concat(cArr);
-        System.out.println(str2.getString()); // World!!!
-        str.concat(str2);
-        System.out.println(str.getString()); // Hello WorldWorld!!!
+        char[] str3 = {'!', '!', '!'};
+        str2.concat(str3);
+        System.out.println(str2.getString()); // This is a test!!!
+
+        String str4 = "See you later";
+        str2.concat(str4);
+        System.out.println(str2.getString()); // This is a test!!!See you later
+
+        str.concat(str2.substring(17));
+        System.out.println(str.getString()); // Hello WorldSee you later
     }
 }

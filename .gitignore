@@ -1,2 +1,4 @@
 *.class
 /dist/
+/tsconfig.json
+/Relations/Person-Wallet

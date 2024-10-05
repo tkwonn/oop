@@ -30,5 +30,6 @@ $ node dist/xxx.js
 For Java,
 go to directory with name java and run
 ```
-$ javac
+$ javac xxx.java
+$ java Main
 ```
