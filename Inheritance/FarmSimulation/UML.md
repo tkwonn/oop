@@ -1,5 +1,6 @@
 ```mermaid
 classDiagram
+    Animal *-- BMI
     Animal <|-- Mammal
     Animal <|-- Bird
     Mammal <|-- Cow
@@ -7,10 +8,10 @@ classDiagram
     Mammal <|-- Person
     Bird <|-- Chicken
     Bird <|-- Parrot
-    Barn --> Cow : contains
-    Barn --> Horse : contains
-    Barn --> Chicken : contains
-    Person "1" -- "1" Barn : owns
+    Person o-- Barn
+    Barn o-- "0..*" Cow
+    Barn o-- "0..*" Horse
+    Barn o-- "0..*" Chicken
 
     class Animal {
         #String species
